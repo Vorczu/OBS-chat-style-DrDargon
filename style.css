@@ -1,0 +1,83 @@
+@font-face {
+  font-family: eleFont;
+  src: url(assets/BebasNeue-Regular.ttf);
+}
+
+body {
+  background-color: #1e2f48;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#contener {
+  height: 90vh;
+  padding: 30px;
+  font-family: eleFont;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  max-width: 800px;
+}
+
+.msg_box {
+  position: relative;
+  padding: 15px 30px;
+  width: 400px;
+  background-color: #0d192b;
+  margin-bottom: 45px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom: #2f415b 1px solid;
+  border-right: #2f415b 1px solid;
+  z-index: 1;
+  -webkit-animation: msg_enter .3s linear forwards;
+          animation: msg_enter .3s linear forwards;
+}
+
+.name_box {
+  position: absolute;
+  content: '';
+  background-color: rgba(0, 255, 247, 0.61);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px 10px;
+  top: -30px;
+  left: 0;
+  border-top-right-radius: 15px;
+  z-index: 22;
+}
+
+@-webkit-keyframes msg_enter {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes msg_enter {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=style.css.map */

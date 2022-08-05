@@ -1,466 +1,69 @@
 @font-face {
   font-family: eleFont;
-  src: url(assets/Electrolize.ttf);
+  src: url(assets/BebasNeue-Regular.ttf);
 }
 
-$backgroundColor: #181818;
-$primaryColor: #ffba3b;
+$soft_blue: hsl(215, 51%, 70%);
+$cyan: hsl(178, 100%, 50%);
+$cyan_hover: hsla(178, 100%, 50%, 0.61);
+$very_dark_blue_bg: hsl(217, 54%, 11%); //(main BG)
+$very_dark_blue_bg2: hsl(216, 42%, 20%); //(main BG)
+$very_dark_blue_cbg: hsl(216, 50%, 16%); // (card BG)
+$very_dark_blue_line: hsl(215, 32%, 27%); // (line)
+$white: hsl(0, 0%, 100%);
 
 body{
-  background-color: #111;
+  background-color: $very_dark_blue_bg2;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
-#contener{
+#contener{  
   height: 90vh;
   padding: 30px;
   font-family: eleFont;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-
+  max-width: 800px;
 }
 
-
-.box_msg{
+.msg_box{
   position: relative;
-  width: 800px;
-  min-height: 80px;
-  overflow: hidden;
-  border-top-left-radius: 30px 50%;
-  border-top-right-radius:30px 50%;
-  border-bottom-left-radius: 30px 50%;
-  border-bottom-right-radius:30px 50%;
-
-
-  &::before{
-
-    position: absolute;
-    content: '';
-    background: rgb(86,212,130);
-    background: linear-gradient(90deg, rgba(86,212,130,1) 0%, rgba(65,221,206,1) 39%, rgba(4,172,199,1) 100%);
-    height: 900px;
-    width: 900px;
-    top: -500%;
-    animation: rotate 8s linear infinite;
-  }
-
-  &::after{
-    position: absolute;
-    content: '';
-    background: $backgroundColor;
-    inset: 4px;
-    border-top-left-radius: 30px 50%;
-    border-top-right-radius:30px 50%;
-    border-bottom-left-radius: 30px 50%;
-    border-bottom-right-radius:30px 50%;
-  }
+  padding: 15px 30px;
+  width: 400px;
+  background-color: $very_dark_blue_bg;
+  margin-bottom: 45px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom: $very_dark_blue_line 1px solid;
+  border-right: $very_dark_blue_line 1px solid;
+  z-index: 1;
+  animation: msg_enter .3s linear forwards;
 }
 
-@keyframes rotate {
-  0%{
-    transform: rotate(0deg);
-  }
-  
-  100%{
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes show_msg_box {
-  0%{
-    width: 20px;
-    height: 3px;
-  }
-  50%{
-    width: 900px;
-    height: 1px;
-  }
-  100%{
-    width: 900px;
-    height: 80px;
-  }
-
-}
-
-.blast{
+.name_box{
   position: absolute;
   content: '';
-  width: 300px;
-  height: 330px;
-  bottom: -140px;
-  left: -130px;
-  background-size: cover;
-  background-image: url('assets/L2.gif');
-  z-index: 99;
-}
-
-.box_msg_small{
-  position: relative;
-  width: 800px;
-  min-height: 40px;
-  background-color: $backgroundColor;
-  display: flex;
-  flex-direction: row;  
-  justify-content: space-between;
-  border-top: 1px solid $primaryColor;
-  border-right: 1px solid $primaryColor;
-  margin-bottom: 35px;
-  animation: msg_enter .3s linear forwards;
-
-  &::before{
-    position: absolute;
-    content: '';
-    width: 8px;
-    height: 8px;
-    background-color: $backgroundColor;
-    border: 1px solid $primaryColor;
-    transform: rotate(45deg);
-    right: -5px;
-    bottom: -12px;
-    z-index: 90;
-  }
-
-  &::after{
-    position: absolute;
-    content: '';
-    width: 5px;
-    height: 5px;
-    background-color: $primaryColor;
-    transform: rotate(45deg);
-    right: -2.5px;
-    bottom: -9px;
-    z-index: 91;
-    animation: diamond_blink 2s linear infinite;
-    
-  }
+  background-color: $cyan_hover;
+  width: fit-content;
+  padding: 5px 10px;
+  top: -30px;
+  left: 0;
+  border-top-right-radius: 15px;
+  z-index: 22;
+  
 }
 
 @keyframes msg_enter {
   0%{
-    top: 120px;
+    opacity: 0;
   }
   100%{
-    top: 0;
-  }
-}
-
-@keyframes diamond_blink {
-  0%{
-    opacity: 0;
-  }
-  75%{
-    opacity: 0;
-  }
-  80%{
     opacity: 1;
   }
-  90%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 0;
-  }
 }
-
-
-
-.top_bar{
-  position: absolute;
-  content: '';
-  width: 85%;
-  height: 10px;
-  background-color: $backgroundColor;
-  top: -10px;
-  left: 0;
-  
-
-  &::after{
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 1px;
-    top: -1px;
-    right: 0;
-    border-top: 1px solid $primaryColor;
-  }
-
-  &::before{
-    position: absolute;
-    content: '';
-    width: 14px;
-    height: 8px;
-    background-color: $backgroundColor;
-    top: 3px;
-    right: -9px;
-    transform: rotate(45deg);
-    border-top: 1px solid $primaryColor;
-  }
-}
-
-.bot_bar{
-  position: absolute;
-  content: '';
-  width: 85%;
-  height: 10px;
-  background-color: $backgroundColor;
-  bottom: -10px;
-  right: 0;
-
-
-  &::before{
-    position: absolute;
-    content: '';
-    width: 15px;
-    height: 10px;
-    background-color: $backgroundColor;
-    bottom: 4px;
-    left: -9px;
-    transform: rotate(45deg);
-  }
-}
-
-.name_sml{
-  position: relative;
-  padding-right: 20px;
-  height: 30px;
-  transform: rotate(-6deg);
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  top: -5px;
-  left: -5px;
-  animation: nameshake 1s ease-in-out infinite, name_enter .3s ease-in forwards;
-}
-
-.tw_sub{
-  background-image: url('https://i.postimg.cc/Bvsw-Gj3t/bolt.png');
-}
-.tw_mod{
-  background-image: url('https://i.postimg.cc/k4g1BLBm/wrench.png');
-}
-.tw_vip{
-  background-image: url('https://i.postimg.cc/JhqY7R7x/plug.png');
-}
-.tw_owner{
-  background-image: url('https://i.postimg.cc/44hjXPmx/crown.png');
-}
-
-@keyframes nameshake {
-  0%{
-    transform: translateX(0px) rotate(-6deg) translateY(0px);
-    left: -300px;    
-  }
-  11%{
-    transform: translateX(3px) rotate(-4deg) translateY(2px);
-  }
-  22%{
-    transform: translateX(0px) rotate(-6deg) translateY(0px);
-  }
-  33%{
-    transform: translateX(4px) rotate(-6deg) translateY(4px);
-  }
-  44%{
-    transform: translateX(0px) rotate(-4deg) translateY(0px);
-  }
-  55%{
-    transform: translateX(3px) rotate(-6deg) translateY(2px);
-  }
-  66%{
-    transform: translateX(0px) rotate(-6deg) translateY(0px);
-  }
-  77%{
-    transform: translateX(4px) rotate(-4deg) translateY(4px);
-  }
-  88%{
-    transform: translateX(0px) rotate(-6deg) translateY(0px);
-  }
-  100%{
-    transform: translateX(3px) rotate(-4deg) translateY(2px);
-  }
-}
-
-@keyframes name_enter {
-  0%{
-    left:  -300px;
-  }
-  100%{
-    left: 0;
-  }
-}
-
-.name_sml_bg_base{
-
-  height: 30px;
-  background-color: $primaryColor;
-  padding: 3px 13px;
-  color: $backgroundColor;
-  font-size: 18px;
-  font-weight: bold;
-  min-width: 100px;
-
-  &::after{
-    position: absolute;
-    content: '';
-    width: 20px;
-    height: 40px;
-    top: -10px;
-    right: 9px;
-    background-color: $primaryColor;
-    transform: rotate(33deg);
-    z-index: -1;
-  }
-}
-
-.msg_sml{
-  padding: 8px;
-  font-size: 16px;
-  color: $primaryColor;
-  width: 80%;
-  word-wrap: break-word;
-  display: flex;
-  align-items: center;
-}
-
-.top_bar_anim{
-  position: absolute;
-  content: '';
-  width: 10px;
-  height: 1px;
-  background-color: $primaryColor;
-  top:  -2px;
-  left: 0;
-  animation: top_anim 1s ease-in infinite;
-}
-
-@keyframes top_anim {
-  0%{
-    left: 0;
-    width: 10px;
-  }
-  50%{
-    width: 100px;
-  }
-  95%{
-    width: 30px;
-  }
-  100%{
-    width: 0px;
-    left: 100%;
-  }
-}
-
-.top_bar_anim_lower{
-  position: absolute;
-  content: '';
-  width: 10px;
-  height: 3px;
-  background-color: $primaryColor;
-  top:  8px;
-  right: 0;
-  z-index: -1;
-  animation: top_anim_lower 1s linear  infinite;
-  animation-delay: .9s;
-}
-
-@keyframes top_anim_lower {
-  0%{
-    right: 0;
-    width: 10px;
-  }
-  50%{
-    width: 30px;
-  }
-  49%{
-    width: 10px;
-  }
-  50%{
-    right: -17%;
-    width: 0px;
-  }
-  100%{
-    right: -17%;
-    width: 0px;
-  }
-}
-
-.side_bar_anim{
-  position: absolute;
-  content: '';
-  width: 3px;
-  height: 1px;
-  background-color: $primaryColor;
-  right: -2px;
-  top: 0;
-  animation: side_bar_anim 1s linear infinite;
-  animation-delay: 1.35s;
-}
-
-
-@keyframes side_bar_anim {
-  0%{
-    top: 0;
-    height: 5px;
-  }
-  20%{
-    height: 10px;
-    top: 100%;
-  }
-  40%{
-    height: 5px;
-    top: 100%;
-  }
-  100%{
-    top: 100%;
-  }
-}
-
-.class_container{
-  position: absolute;
-  display: flex;
-  top: 30px;
-  left: 40px;
-  
-}
-.cBox{
-  width: 30px;
-  height: 30px;
-  margin-left: 8px;
-  transform: rotate(10deg);
-}
-
-.box3{
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-.box2{
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-.box1{
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.big_ico{
-  position: absolute;
-  content: '';
-  width: 60px;
-  height: 60px;
-  background: url(assets/blast.gif);
-  background-size: contain;
-  top: -10px;
-  right: 20px;
-  transform: rotate(15deg);
-  z-index: 90;
-}
-
-
-
-
-
-
-
-
-
 
