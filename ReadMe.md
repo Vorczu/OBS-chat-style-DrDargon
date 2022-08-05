@@ -3,6 +3,6 @@
 2. Run index.html in your browser.
 3. Copy link from your browser to your OBS BROWSER input in scene (rembeber to pase it in URL section).
 
-Pewview
+
 ![alt text](https://github.com/Vorczu/OBS-chat-style-DrDargon/blob/main/drDragon.png?raw=true)
 
